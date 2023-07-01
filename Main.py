@@ -108,26 +108,8 @@ def refresh_data(main_thread,):
 
     while True:
         
-        #data_download_thread = threading.Thread(target = download_all_data)    
-        #data_download_thread.start()
-
-        '''
-        refresh_thread = threading.current_thread()
-        print("Refresher thread: ",refresh_thread)
-        
-        refresh_thread = threading.current_thread()
-        print("Downloader main thread: ",refresh_thread)
-
-        data_download_thread.join()
-        
-        i = 0
-        for t in threading.enumerate():
-            #if t is main_thread or t is refresh_thread:
-                #continue
-            #t.join()
-            print(i, ": ", t)
-            i+=1
-        '''
+        data_download_thread = threading.Thread(target = download_all_data)    
+        data_download_thread.start()
 
         download_company_info()
             
@@ -152,6 +134,7 @@ def main():
 
     print("INITIALIZING DATA...")
 
+    time.sleep(90)
     root = Tk()
         
     page_manager = PageManager.PageManager(root)
